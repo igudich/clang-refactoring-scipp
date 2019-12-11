@@ -81,8 +81,7 @@ Variable makeVariable(const Dimensions &dimensions, Args &&... args);
 +++?color=lavender
 @title[The pythonic way of doing things]
 
-#### @color[yellow](The pythonic way of doing things:)
-
+#### @color[gray](The pythonic way of doing things:)
 - named arguments,
 - arbitrary order, 
  
@@ -90,13 +89,13 @@ Variable makeVariable(const Dimensions &dimensions, Args &&... args);
 make_variable(dimensions=[Dim.X, Dim.Y], shape=[1, 2], values=[4, 4])
 ```
 
-Could we do something similar in C++? We would try:
+#### @color[gray](Could we do something similar in C++? We would try:)
 
 ```cpp
 template <class T, class... Ts> Variable makeVariable(Ts &&... ts);
 ```
 
-Now we can write:
+#### @color[gray](Now we can write:)
 
 ```cpp
 makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
