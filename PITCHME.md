@@ -24,7 +24,7 @@ Code presenting repository source file template.
 +++?color=lavender
 @title[The old API for creating Variables]
 
-# The old API for creating Variables
+### The old API for creating Variables
 
 ```cpp
 template <class T> 
@@ -44,7 +44,7 @@ Variable makeVariable(T value, T variance);
 +++?color=lavender
 @title[More cases]
 
-# More cases:
+### More cases:
 
 ```cpp
 template <class T, class T2 = T> 
@@ -62,7 +62,7 @@ Variable makeVariable(const Dimensions &dimensions,
 +++?color=lavender
 @title[More sophisticated]
 
-# More sophisticated:
+### More sophisticated:
 
 ```cpp
 template <class T> 
