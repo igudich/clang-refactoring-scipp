@@ -29,10 +29,12 @@ template <class T>
 Variable makeVariable(const Dimensions &dimensions);
 
 template <class T> 
-Variable makeVariable(const Dimensions &dimensions, const detail::default_init_elements_t &init);
+Variable makeVariable(const Dimensions &dimensions, 
+                      const detail::default_init_elements_t &init);
 
 template <class T> 
-Variable makeVariable(const std::initializer_list<Dim> &dims, const std::initializer_list<scipp::index> &shape)
+Variable makeVariable(const std::initializer_list<Dim> &dims, 
+                      const std::initializer_list<scipp::index> &shape)
 
 template <class T> 
 Variable makeVariable(T value);
@@ -41,16 +43,23 @@ template <class T>
 Variable makeVariable(T value, T variance);
 
 template <class T, class T2 = T> 
-Variable makeVariable(const Dimensions &dimensions, std::initializer_list<T2> values, std::initializer_list<T2> variances = {});
+Variable makeVariable(const Dimensions &dimensions, 
+                      std::initializer_list<T2> values, 
+                      std::initializer_list<T2> variances = {});
 
 template <class T, class T2 = T> 
-Variable makeVariable(const Dimensions &dimensions, const units::Unit unit, std::initializer_list<T2> values, std::initializer_list<T2> variances = {});
+Variable makeVariable(const Dimensions &dimensions, 
+                      const units::Unit unit,
+                      std::initializer_list<T2> values, 
+                      std::initializer_list<T2> variances = {});
 
 template <class T> 
-Variable makeVariableWithVariances(const Dimensions &dimensions, units::Unit unit = units::dimensionless);
+Variable makeVariableWithVariances(const Dimensions &dimensions, 
+                                   units::Unit unit = units::dimensionless);
 
 template <class T> 
-Variable makeVariableWithVariances(const Dimensions &dimensions, const detail::default_init_elements_t &init);
+Variable makeVariableWithVariances(const Dimensions &dimensions, 
+                                   const detail::default_init_elements_t &init);
 ```
 
 +++?color=lavender
