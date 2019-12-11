@@ -39,7 +39,7 @@ Variable makeVariable(T value);
 template <class T>
 Variable makeVariable(T value, T variance);
 ```
-@snapped
+@snapend
 
 +++?color=lavender
 @title[More cases]
