@@ -24,6 +24,7 @@ Code presenting repository source file template.
 +++?color=lavender
 @title[The old API for creating Variables]
 
+@snap[south span-100]
 ```cpp
 template <class T> 
 Variable makeVariable(const Dimensions &dimensions);
@@ -32,12 +33,13 @@ Variable makeVariable(const Dimensions &dimensions,
                       const detail::default_init_elements_t &init);
 template <class T> 
 Variable makeVariable(const std::initializer_list<Dim> &dims, 
-                      const std::initializer_list<scipp::index> &shape)
+                      const std::initializer_list<scipp::index> &shape);
 template <class T> 
 Variable makeVariable(T value);
 template <class T>
 Variable makeVariable(T value, T variance);
 ```
+@snapped
 
 +++?color=lavender
 @title[More cases]
