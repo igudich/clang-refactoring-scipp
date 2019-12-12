@@ -24,7 +24,7 @@ Code presenting repository source file template.
 +++?color=lavender
 @title[The old API for creating Variables]
 
-#### @color[yellow](The old API for creating Variables:)
+#### @color[gray](The old API for creating Variables:)
 
 
 ```cpp
@@ -45,7 +45,7 @@ Variable makeVariable(T value, T variance);
 +++?color=lavender
 @title[More cases]
 
-#### @color[yellow](More cases:)
+#### @color[gray](More cases:)
 
 
 ```cpp
@@ -64,7 +64,7 @@ Variable makeVariable(const Dimensions &dimensions,
 +++?color=lavender
 @title[More sophisticated]
 
-#### @color[yellow](More sophisticated:)
+#### @color[gray](More sophisticated:)
 
 
 ```cpp
@@ -91,14 +91,29 @@ make_variable(dimensions=[Dim.X, Dim.Y], shape=[1, 2], values=[4, 4])
 make_variable(values=[4, 4], dimensions=[Dim.X, Dim.Y], shape=[1, 2])
 ```
 
-    @color[gray](Could we do something similar in C++? We would try:)
+@color[gray](Could we do something similar in C++? We would try:)
 
 ```cpp
 template <class T, class... Ts> Variable makeVariable(Ts &&... ts);
 ```
 
-    @color[gray](Now we can write:)
+@color[gray](Now we can write:)
 
 ```cpp
 makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 ```
+
++++?color=lavender
+@title[Refactoring conditions and tools]
+
+##### Refactoring conditions and tools.
+
+
+| 182 files | 45739 lines of code | 1162 occurance of "makeVariable"|
+|-----------|---------------------|---------------------------------|
+
+##### clang-10 tools:
+- <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
+- <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
+- <https://clang.llvm.org/docs/LibASTMatchers.html>
+- <https://clang.llvm.org/docs/LibASTMatchersReference.html>
