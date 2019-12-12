@@ -83,7 +83,6 @@ Variable makeVariable(const Dimensions &dimensions, Args &&... args);
 
 #### @color[gray](The pythonic way of doing things:)
 
- 
 ```python
 # Named arguments in arbitrary order
 make_variable(dimensions=[Dim.X, Dim.Y], shape=[1, 2], values=[4, 4])
@@ -91,15 +90,19 @@ make_variable(dimensions=[Dim.X, Dim.Y], shape=[1, 2], values=[4, 4])
 make_variable(values=[4, 4], dimensions=[Dim.X, Dim.Y], shape=[1, 2])
 ```
 
-@color[gray](Could we do something similar in C++? We would try:)
+</br>
+</br>
 
 ```cpp
+//Could we do something similar in C++? We would try:
 template <class T, class... Ts> Variable makeVariable(Ts &&... ts);
 ```
 
-@color[gray](Now we can write:)
+</br>
+</br>
 
 ```cpp
+Now we can write:
 makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 ```
 
