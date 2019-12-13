@@ -95,16 +95,13 @@ make_variable(dimensions=[Dim.X, Dim.Y], shape=[1, 2], values=[4, 4])
 make_variable(values=[4, 4], dimensions=[Dim.X, Dim.Y], shape=[1, 2])
 ```
 
+#### @color[gray](Could we do something similar in C++? We would try):
+
 </br>
 
 ```cpp
-//Could we do something similar in C++? We would try:
 template <class T, class... Ts> Variable makeVariable(Ts &&... ts);
-```
 
-</br>
-
-```cpp
 //Now we can write:
 makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 ```
@@ -114,15 +111,16 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 
 ##### Refactoring conditions and tools.
 
+</br>
 
-#| 182 files | 45739 lines of code | 1162 occurance of "makeVariable"|
-#|-----------|---------------------|---------------------------------|
+| 182 files | 45739 lines of code | 1162 occurance of "makeVariable"|
+|-----------|---------------------|---------------------------------|
 
 ##### clang-10 tools:
-- size[large](<https://clang.llvm.org/docs/LibASTMatchersTutorial.html>)
-- size[large](<https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>)
-- size[large](<https://clang.llvm.org/docs/LibASTMatchers.html>)
-- size[large](<https://clang.llvm.org/docs/LibASTMatchersReference.html>)
+- <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
+- <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
+- <https://clang.llvm.org/docs/LibASTMatchers.html>
+- <https://clang.llvm.org/docs/LibASTMatchersReference.html>
 
 +++?color=lavender
 @title[Match finder callback]
