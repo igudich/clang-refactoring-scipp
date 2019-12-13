@@ -184,9 +184,8 @@ std::set<Replacement> replacements;
 
 class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
 public :
-
-static StatementMatcher MakeVariableMatcher;	
-MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm) : replaceMap(rm) {}
+  static StatementMatcher MakeVariableMatcher;
+  MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm) : replaceMap(rm) {}
   virtual void run(const MatchFinder::MatchResult &Result);
 private:
 	std::map<std::string, Replacements> *replaceMap;

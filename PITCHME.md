@@ -123,3 +123,20 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 - <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
 - <https://clang.llvm.org/docs/LibASTMatchers.html>
 - <https://clang.llvm.org/docs/LibASTMatchersReference.html>
+
++++?color=lavender
+@title[Match finder callback]
+
+@size[x-small](@color[gray](Match finder callback:))
+
+```cpp
+class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
+public :
+  static StatementMatcher MakeVariableMatcher;
+  MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm): 
+                                replaceMap(rm) {}
+  virtual void run(const MatchFinder::MatchResult &Result);
+private:
+	std::map<std::string, Replacements> *replaceMap;
+};
+``` 
