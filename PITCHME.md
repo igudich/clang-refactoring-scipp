@@ -115,19 +115,19 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 ##### Refactoring conditions and tools.
 
 
-| 182 files | 45739 lines of code | 1162 occurance of "makeVariable"|
-|-----------|---------------------|---------------------------------|
+#| 182 files | 45739 lines of code | 1162 occurance of "makeVariable"|
+#|-----------|---------------------|---------------------------------|
 
 ##### clang-10 tools:
-- <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
-- <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
-- <https://clang.llvm.org/docs/LibASTMatchers.html>
-- <https://clang.llvm.org/docs/LibASTMatchersReference.html>
+- size[large](<https://clang.llvm.org/docs/LibASTMatchersTutorial.html>)
+- size[large](<https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>)
+- size[large](<https://clang.llvm.org/docs/LibASTMatchers.html>)
+- size[large](<https://clang.llvm.org/docs/LibASTMatchersReference.html>)
 
 +++?color=lavender
 @title[Match finder callback]
 
-@size[xx-large](@color[gray](Subclass MatchFinder::Callback\:))
+@size[xx-large](@color[gray](Subclass MatchFinder::Callback :))
 
 ```cpp
 class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
@@ -140,7 +140,7 @@ private:
 };
 ``` 
 
-@size[xx-large](@color[gray](Using the custom class:))
+@size[xx-large](@color[gray](Using the custom class :))
 
 ```cpp
 static StatementMatcher MakeVariableMatcher = ...;
