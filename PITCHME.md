@@ -84,7 +84,7 @@ Variable makeVariable(const Dimensions &dimensions, Args &&... args);
 +++?color=lavender
 @title[The pythonic way of doing things]
 
-##### @color[gray](The pythonic way of doing things:)
+size[xx-large](@color[gray](The pythonic way of doing things:))
 
 </br>
 
@@ -95,7 +95,7 @@ make_variable(dimensions=[Dim.X, Dim.Y], shape=[1, 2], values=[4, 4])
 make_variable(values=[4, 4], dimensions=[Dim.X, Dim.Y], shape=[1, 2])
 ```
 
-##### @color[gray](Could we do something similar in C++? We would try):
+size[xx-large](@color[gray](Could we do something similar in C++?))
 
 </br>
 
