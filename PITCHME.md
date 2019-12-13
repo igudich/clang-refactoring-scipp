@@ -73,10 +73,10 @@ Variable makeVariable(const Dimensions &dimensions,
 ```cpp
 template <class T> 
 Variable makeVariableWithVariances(const Dimensions &dimensions, 
-                                   units::Unit unit = units::dimensionless);
+                                   units::Unit unit);
 template <class T> 
 Variable makeVariableWithVariances(const Dimensions &dimensions, 
-                                   const detail::default_init_elements_t &init);
+                                   const default_init_elements_t &init);
 template <class T, class... Args> 
 Variable makeVariable(const Dimensions &dimensions, Args &&... args);
 ```
@@ -127,16 +127,33 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 +++?color=lavender
 @title[Match finder callback]
 
-@size[x-small](@color[gray](Match finder callback:))
+@size[medium](@color[gray](Match finder callback:))
 
 ```cpp
 class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
 public :
   static StatementMatcher MakeVariableMatcher;
-  MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm): 
+  MakeVariableWithDimsCallBack(map<std::string, Replacements> *rm): 
                                 replaceMap(rm) {}
   virtual void run(const MatchFinder::MatchResult &Result);
 private:
 	std::map<std::string, Replacements> *replaceMap;
 };
 ``` 
+
+</br>
+
+```cpp
+
+int main(int argc, const char **argv) {
+  CommonOptionsParser OptionsParser(argc, argv, MyToolCategory);
+  RefactoringTool Tool(OptionsParser.getCompilations(), 
+                       OptionsParser.getSourcePathList());
+  MakeVariableWithDimsCallBack withDimensions(&Tool.getReplacements());
+  MatchFinder Finder;
+  Finder.addMatcher(MakeVariableWithDimsCallBack::MakeVariableMatcher, 
+                    &withDimensions);
+  auto Result = Tool.runAndSave(newFrontendActionFactory(&Finder).get());
+	return Result;
+}
+```
