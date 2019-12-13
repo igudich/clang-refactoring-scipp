@@ -127,16 +127,16 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 +++?color=lavender
 @title[Match finder callback]
 
-@size[x-large](@color[gray](Match finder callback:))
+@size[xxx-large](@color[gray](Match finder callback:))
 
 ```cpp
 class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
-public :
-  MakeVariableWithDimsCallBack(map<std::string, Replacements> *rm): 
-                                replaceMap(rm) {}
+public:
+  using ReplMap = std::map<std::string, Replacements>;
+  MakeVariableWithDimsCallBack(ReplMap *rm) : replMap(rm) {}
   virtual void run(const MatchFinder::MatchResult &Result);
 private:
-	std::map<std::string, Replacements> *replaceMap;
+  ReplMap *replMap;
 };
 ``` 
 
