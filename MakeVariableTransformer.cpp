@@ -187,7 +187,14 @@ public :
 
 static StatementMatcher MakeVariableMatcher;	
 MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm) : replaceMap(rm) {}
-  virtual void run(const MatchFinder::MatchResult &Result) {
+  virtual void run(const MatchFinder::MatchResult &Result);
+private:
+	std::map<std::string, Replacements> *replaceMap;
+};
+
+StatementMatcher MakeVariableWithDimsCallBack::MakeVariableMatcher = callExpr(callee(functionDecl(hasName("makeVariable"))), hasArgument(0, hasType(recordDecl(hasName("Dimensions"))))).bind("makeVariable");
+
+void MakeVariableWithDimsCallBack::run(const MatchFinder::MatchResult &Result) {
     PrintingPolicy policy(langOpts);
     SourceManager *SM = Result.SourceManager;
     if (const CallExpr *FS = Result.Nodes.getNodeAs<clang::CallExpr>("makeVariable")) {     
@@ -215,7 +222,16 @@ MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm) : replaceM
            SourceRange argRange = iter->getSourceRange();
            argStr = removeLineBreaks(std::string(Lexer::getSourceText(CharSourceRange::getTokenRange(argRange), *SM, langOpts)));
            outs() << "native arg: " << type << " " << s.str() << "\n";
-           if(type.find("initializer_list") != std::string::npos) {
+      if (type.find("Dimensions") != std::string::npos) {
+        substitute += convertDimensionsArg(argStr) + ", ";
+      } else if(type.find("Unit") != std::string::npos
+          || type.find("unit") != std::string::npos
+          || argStr.find("units::") != std::string::npos) {
+        if (argStr.find("units::Unit") == std::string::npos)
+          substitute += "units::Unit(" + argStr + "), ";
+        else
+          substitute += argStr + ", ";
+      } else if(type.find("initializer_list") != std::string::npos) {
              std::string pref = "(";
              std::string suf = ")";
              if (argStr.find("{") != std::string::npos && argStr.find("}") != std::string::npos) {
@@ -229,13 +245,25 @@ MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm) : replaceM
 							 if (!argStr.empty())
 								 substitute += "Variances" + pref + argStr + suf + ", ";
 						 }
+      } else if(type.find("vector") != std::string::npos) {
+        if (functionOrConstructor(argStr)) {
+          substitute = exprStr + "/*LABEL_1*/";
+          break;
+        }
+        if (values) {
+          substitute += "Values(" + argStr + ".begin(), " + argStr + ".end()" + "), ";
+          values =false;
+        } else {
+          if (!argStr.empty())
+            substitute += "Variances(" + argStr + ".begin(), " + argStr + ".end()" + "), ";
+        }
            } else {
              if (values) {
-               substitute += "Values{" + argStr + "}, ";
+          substitute += "Values(" + argStr + "), ";
                values =false; 
              } else {
                if (!argStr.empty())
-                 substitute += "Variances{" + argStr + "}, ";
+            substitute += "Variances(" + argStr + "), ";
              } 
            }
        }
@@ -258,11 +286,6 @@ MakeVariableWithDimsCallBack(std::map<std::string, Replacements> *rm) : replaceM
        }
     }
   }
-private:
-	std::map<std::string, Replacements> *replaceMap;
-};
-
-StatementMatcher MakeVariableWithDimsCallBack::MakeVariableMatcher = callExpr(callee(functionDecl(hasName("makeVariable")))).bind("makeVariable");
 
 int main(int argc, const char **argv) {
   langOpts.CPlusPlus = true;
