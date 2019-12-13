@@ -127,7 +127,7 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 +++?color=lavender
 @title[Match finder callback]
 
-@size[xxx-large](@color[gray](Match finder callback:))
+@size[xx-large](@color[gray](Subclass MatchFinder::Callback\:))
 
 ```cpp
 class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
@@ -140,7 +140,7 @@ private:
 };
 ``` 
 
-</br>
+@size[xx-large](@color[gray](Using the custom class:))
 
 ```cpp
 static StatementMatcher MakeVariableMatcher = ...;
