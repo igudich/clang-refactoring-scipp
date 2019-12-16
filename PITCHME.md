@@ -112,7 +112,6 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 Refactoring conditions.
 @snapend
 
-@snap[north]
 <table>
   <tr>
     <th>Files</th>
@@ -125,7 +124,6 @@ Refactoring conditions.
     <td>1162</td>
   </tr>
 </table>
-@snapend
 
 @snap[south]
 <br>
