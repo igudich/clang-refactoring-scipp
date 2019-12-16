@@ -118,10 +118,10 @@ Refactoring conditions.
     <th>Lines of code</th>
     <th>Number of occurances</th>
   </tr>
-  <tr class="fragment">
-    <td>182</td>
-    <td>45739</td>
-    <td>1162</td>
+  <tr>
+    <td class="fragment">182</td>
+    <td class="fragment">45739</td>
+    <td class="fragment">1162</td>
   </tr>
 </table>
 
