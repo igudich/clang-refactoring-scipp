@@ -106,6 +106,55 @@ template <class T, class... Ts> Variable makeVariable(Ts &&... ts);
 //Now we can write:
 makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 ```
+@snap[north-west]
+JVM Polyglot Runtime
+@snapend
+
+@snap[west]
+<br>
+@ul
+- Java
+- Groovy
+- Kotlin
+- Scala
+- Clojure
+@ulend
+@snapend
+
+@snap[east span-60 fragment]
+![](assets/img/jvm.jpg)
+@snapend
+
++++?color=lavender
+@title[Table Content Fragments]
+
+
+@snap[north]
+Table Data Fragments
+@snapend
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>25</td>
+  </tr>
+  <tr class="fragment">
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr class="fragment">
+    <td>John</td>
+    <td>Doe</td>
+    <td>43</td>
+  </tr>
+</table>
 
 +++?color=lavender
 @title[Refactoring conditions and tools]
