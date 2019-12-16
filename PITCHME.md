@@ -123,45 +123,41 @@ makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 - <https://clang.llvm.org/docs/LibASTMatchers.html>
 - <https://clang.llvm.org/docs/LibASTMatchersReference.html>
 
-+++?color=lavender
-@title[Match finder callback]
+<!--+++?color=lavender-->
+<!--@title[Match finder callback]-->
 
-@size[xx-large](@color[gray](Subclass MatchFinder::Callback :))
+<!--@size[xx-large](@color[gray](Subclass MatchFinder::Callback :))-->
 
-```cpp
-class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {
-public:
-  using ReplMap = std::map<std::string, Replacements>;
-  MakeVariableWithDimsCallBack(ReplMap *rm) : replMap(rm) {}
-  virtual void run(const MatchFinder::MatchResult &Result);
-private:
-  ReplMap *replMap;
-};
-``` 
+<!--```cpp-->
+<!--class MakeVariableWithDimsCallBack: public MatchFinder::MatchCallback {-->
+<!--public:-->
+<!--  using ReplMap = std::map<std::string, Replacements>;-->
+<!--  MakeVariableWithDimsCallBack(ReplMap *rm) : replMap(rm) {}-->
+<!--  virtual void run(const MatchFinder::MatchResult &Result);-->
+<!--private:-->
+<!--  ReplMap *replMap;-->
+<!--};-->
+<!--``` -->
 
-@size[xx-large](@color[gray](Using the custom class :))
+<!--@size[xx-large](@color[gray](Using the custom class :))-->
 
-```cpp
-static StatementMatcher MakeVariableMatcher = ...;
-int main(int argc, const char **argv) {
-  CommonOptionsParser OptionsParser(argc, argv, MyToolCategory);
-  RefactoringTool Tool(OptionsParser.getCompilations(), 
-                       OptionsParser.getSourcePathList());
-  MakeVariableWithDimsCallBack withDimensions(&Tool.getReplacements());
-  MatchFinder Finder;
-  Finder.addMatcher(MakeVariableMatcher, &withDimensions);
-  retrun Tool.runAndSave(newFrontendActionFactory(&Finder).get());
-}
-```
+<!--```cpp-->
+<!--static StatementMatcher MakeVariableMatcher = ...;-->
+<!--int main(int argc, const char **argv) {-->
+<!--  CommonOptionsParser OptionsParser(argc, argv, MyToolCategory);-->
+<!--  RefactoringTool Tool(OptionsParser.getCompilations(), -->
+<!--                       OptionsParser.getSourcePathList());-->
+<!--  MakeVariableWithDimsCallBack withDimensions(&Tool.getReplacements());-->
+<!--  MatchFinder Finder;-->
+<!--  Finder.addMatcher(MakeVariableMatcher, &withDimensions);-->
+<!--  retrun Tool.runAndSave(newFrontendActionFactory(&Finder).get());-->
+<!--}-->
+<!--```-->
 
 +++?code=MakeVariableTransformer.cpp&lang=cpp
 @title[Repo Source File]
 
 @[1-13](Includes.)
-@[185-192](Ubclass MatchFinder::Callback.)
-@[289-200](Using in main.)
-
-@snap[north-east template-note text-gray]
-Code presenting repository source file template.
-@snapend
+@[185-192](Subclass MatchFinder::Callback.)
+@[289-299](Using in main.)
 
