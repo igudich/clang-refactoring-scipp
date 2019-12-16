@@ -154,7 +154,7 @@ int main(int argc, const char **argv) {
 }
 ```
 
-+++?code=template/MakeVariableTransformer.cpp&lang=cpp
++++?code=MakeVariableTransformer.cpp&lang=cpp
 @title[Repo Source File]
 
 @[1,3-6](Present code found within any repository source file.)
