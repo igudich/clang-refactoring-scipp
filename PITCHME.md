@@ -106,18 +106,34 @@ template <class T, class... Ts> Variable makeVariable(Ts &&... ts);
 //Now we can write:
 makeVariable(Dims{Dim::X, Dim::Y}, Shape{1, 2}, Values{4, 4});
 ```
-@snap[north-west]
-JVM Polyglot Runtime
+
++++?color=lavender
+@snap[north]
+Refactoring conditions.
 @snapend
 
-@snap[west]
+@snap[north]
+<table>
+  <tr>
+    <th>Files</th>
+    <th>Lines of code</th>
+    <th>Number of occurances</th>
+  </tr>
+  <tr class="fragment">
+    <td>182</td>
+    <td>45739</td>
+    <td>1162</td>
+  </tr>
+</table>
+@snapend
+
+@snap[south]
 <br>
 @ul
-- Java
-- Groovy
-- Kotlin
-- Scala
-- Clojure
+- <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
+- <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
+- <https://clang.llvm.org/docs/LibASTMatchers.html>
+- <https://clang.llvm.org/docs/LibASTMatchersReference.html>
 @ulend
 @snapend
 
