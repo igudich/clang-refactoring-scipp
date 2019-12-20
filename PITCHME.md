@@ -125,7 +125,7 @@ Refactoring conditions.
   </tr>
 </table>
 
-<h2 style="color:red"> Example Category </h2>
+<h4 style="color:red"> Example Category </h2>
  <ul>
    <li class="fragment"> <https://clang.llvm.org/docs/LibASTMatchersTutorial.html> </li>
    <li class="fragment"> <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html> </li>
