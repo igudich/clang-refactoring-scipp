@@ -127,20 +127,11 @@ Refactoring conditions.
 
 <h2 style="color:red"> Example Category </h2>
  <ul>
-   <li class="fragment"> text</li>
-   <li class="fragment"> text</li>
-   <li class="fragment"> text</li>
+   <li class="fragment"> <https://clang.llvm.org/docs/LibASTMatchersTutorial.html> </li>
+   <li class="fragment"> <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html> </li>
+   <li class="fragment"> <https://clang.llvm.org/docs/LibASTMatchers.html> </li>
+   <li class="fragment"> <https://clang.llvm.org/docs/LibASTMatchersReference.html> </li>
  </ul>
-
-@snap[south]
-<br>
-@ul
-- <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
-- <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
-- <https://clang.llvm.org/docs/LibASTMatchers.html>
-- <https://clang.llvm.org/docs/LibASTMatchersReference.html>
-@ulend
-@snapend
 
 +++?color=lavender
 @title[Table Content Fragments]
