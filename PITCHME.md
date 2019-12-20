@@ -127,16 +127,12 @@ Refactoring conditions.
 
 @snap[south]
 <br>
-@ul
+@size[small](@ul
 - <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
 - <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
 - <https://clang.llvm.org/docs/LibASTMatchers.html>
 - <https://clang.llvm.org/docs/LibASTMatchersReference.html>
-@ulend
-@snapend
-
-@snap[east span-60 fragment]
-![](assets/img/jvm.jpg)
+@ulend)
 @snapend
 
 +++?color=lavender
