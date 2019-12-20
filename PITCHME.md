@@ -125,14 +125,21 @@ Refactoring conditions.
   </tr>
 </table>
 
+<h2 style="color:red"> Example Category </h2>
+ <ul>
+   <li class="fragment"> text</li>
+   <li class="fragment"> text</li>
+   <li class="fragment"> text</li>
+ </ul>
+
 @snap[south]
 <br>
-@size[small](@ul
+@ul
 - <https://clang.llvm.org/docs/LibASTMatchersTutorial.html>
 - <https://clang.llvm.org/docs/HowToSetupToolingForLLVM.html>
 - <https://clang.llvm.org/docs/LibASTMatchers.html>
 - <https://clang.llvm.org/docs/LibASTMatchersReference.html>
-@ulend)
+@ulend
 @snapend
 
 +++?color=lavender
